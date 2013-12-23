@@ -4,5 +4,10 @@
     <string name="app_name">NEClimbs Ice Conditions</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="updating">Updating&#8230;</string>
+	<string name="waiting">Waiting for update</string>
+	<string name="noConditions">No conditions</string>
+	<string name="action_update">Update</string>
+	<string name="grabError">Error connecting to NEClimbs</string>
+	    
 </resources>
