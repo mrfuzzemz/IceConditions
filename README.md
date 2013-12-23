@@ -1,4 +1,7 @@
 IceConditions
 =============
 
-Android App for neclimbs ice conditions
+Unofficial Android App for NEClimbs ice conditions report
+
+http://www.neclimbs.com/?PageName=iceConditionsReport
+
