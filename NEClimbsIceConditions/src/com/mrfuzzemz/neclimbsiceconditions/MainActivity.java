@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     String url = "http://www.neclimbs.com/?PageName=iceConditionsReport";
     ProgressDialog mProgressDialog;
     Calendar c = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("dd:MMMM:yyyy HH:mm:ss a");
+    SimpleDateFormat sdf = new SimpleDateFormat("dd:MMMM:yyyy HH:mm a");
     String strDate = sdf.format(c.getTime());
 	
 	
@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	    new Scrape().execute();
+	    TextView statusTextView = (TextView) findViewById(R.id.status);
+	    statusTextView.setText("Updated " + strDate);
 	}
 
 	@Override
@@ -48,9 +50,7 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		  switch (item.getItemId()) {
 		    case R.id.update:
-				String currentConditions = getConditions();
-			    //TextView conditionsTextView = (TextView) findViewById(R.id.conditions);
-			    // conditionsTextView.setText(currentConditions);
+			    new Scrape().execute();
 			    TextView statusTextView = (TextView) findViewById(R.id.status);
 			    strDate = sdf.format(c.getTime());
 			    statusTextView.setText("Updated " + strDate);
@@ -73,26 +73,7 @@ public class MainActivity extends Activity {
 		  }
 		}
 
-	public String getConditions(){
-	    TextView statusTextView = (TextView) findViewById(R.id.status);
-	    statusTextView.setText(this.getString(R.string.updating));
-	    //Document doc = null;
-	    // Grab the web document
-//	    try {
-//			doc = Jsoup.connect("http://www.neclimbs.com/?PageName=iceConditionsReport").get();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//		    statusTextView.setText(this.getString(R.string.grabError));
-//			e.printStackTrace();
-//			return "";
-//		}
 
-//	    Elements spans = doc.select("span#textMain");
-//	    
-//	    return spans.toString();
-	    new Scrape().execute();
-		return "Current Conditions!";
-	}
 
 
     // Title AsyncTask
