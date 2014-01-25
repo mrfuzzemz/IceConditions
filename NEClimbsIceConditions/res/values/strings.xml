@@ -10,5 +10,7 @@
 	<string name="action_update">Update</string>
 	<string name="grabError">Error connecting to NEClimbs</string>
 	<string name="aboutTitleText">About</string>
-	<string name="about">This is an unofficial app for easily displaying the NEClimbs Ice Conditions Report. I work on it for fun and convenience.</string>
+	<string name="about_menu">About</string>
+	<string name="blank"></string>
+	<string name="aboutText">This is an unofficial app for easily displaying the NEClimbs Ice Conditions Report. I work on it for fun and convenience.</string>
 </resources>

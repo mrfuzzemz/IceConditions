@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -22,8 +24,12 @@ public class AboutActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_about);
 		
+	    TextView link = (TextView) findViewById(R.id.nelink);
+	    String linkText = "Visit the <a href='http://www.neclimbs.com/?PageName=iceConditionsReport'>NEClimbs</a> web page.";
+	    link.setText(Html.fromHtml(linkText));
+	    link.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
 	@Override

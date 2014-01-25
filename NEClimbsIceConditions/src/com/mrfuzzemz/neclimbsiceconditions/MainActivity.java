@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -63,7 +64,10 @@ public class MainActivity extends Activity {
 		    	toast.show();
 		    	
 		    	return true;
-		    	
+		    case R.id.about:
+		    	Intent myIntent = new Intent(this, AboutActivity.class);
+		    	startActivity(myIntent);
+		    	return true;
 		    default:
 		      return super.onOptionsItemSelected(item);
 		  }
@@ -141,32 +145,5 @@ public class MainActivity extends Activity {
             mProgressDialog.dismiss();
         }
     }
-	
-	
-	
-//	private class conditionsUpdaterTask extends AsyncTask<String, Integer, String> {
-//	    // Do the long-running work in here
-//	    protected String doInBackground(String... urls) {
-//	        int count = urls.length;
-//	        long totalSize = 0;
-//	        for (int i = 0; i < count; i++) {
-//	            totalSize += 1;
-//	            publishProgress((int) ((i / (float) count) * 100));
-//	            // Escape early if cancel() is called
-//	            if (isCancelled()) break;
-//	        }
-//	
-//	        return String.valueOf(totalSize);
-//	    }
-//	
-////	    // This is called each time you call publishProgress()
-////	    protected void onProgressUpdate(Integer... progress) {
-////	        setProgressPercent(progress[0]);
-////	    }
-////	
-////	    // This is called when doInBackground() is finished
-////	    protected void onPostExecute(Long result) {
-////	        showNotification("Downloaded " + result + " bytes");
-////	    }
-//	}
+
 }
