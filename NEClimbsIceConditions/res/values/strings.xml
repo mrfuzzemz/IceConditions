@@ -5,9 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 	<string name="updating">Updating&#8230;</string>
-	<string name="waiting">Press UPDATE</string>
+	<string name="waiting"></string>
 	<string name="noConditions"></string>
 	<string name="action_update">Update</string>
 	<string name="grabError">Error connecting to NEClimbs</string>
-	    
+	<string name="aboutTitleText">About</string>
+	<string name="about">This is an unofficial app for easily displaying the NEClimbs Ice Conditions Report. I work on it for fun and convenience.</string>
 </resources>

@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+	    new Scrape().execute();
 	}
 
 	@Override
@@ -86,13 +86,13 @@ public class MainActivity extends Activity {
 //	    Elements spans = doc.select("span#textMain");
 //	    
 //	    return spans.toString();
-	    new Title().execute();
+	    new Scrape().execute();
 		return "Current Conditions!";
 	}
 
 
     // Title AsyncTask
-    private class Title extends AsyncTask<Void, Void, Void> {
+    private class Scrape extends AsyncTask<Void, Void, Void> {
         String title = "";
         Document document;
  
