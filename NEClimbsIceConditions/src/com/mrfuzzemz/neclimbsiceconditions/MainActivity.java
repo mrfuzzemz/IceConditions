@@ -52,6 +52,7 @@ public class MainActivity extends Activity {
 		    case R.id.update:
 			    new Scrape().execute();
 			    TextView statusTextView = (TextView) findViewById(R.id.status);
+			    Calendar c = Calendar.getInstance();
 			    strDate = sdf.format(c.getTime());
 			    statusTextView.setText("Updated " + strDate);
 		      return true;
