@@ -35,9 +35,13 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-	    new Scrape().execute();
-	    TextView statusTextView = (TextView) findViewById(R.id.status);
-	    statusTextView.setText("Updated " + strDate);
+		//TextView conditionsText = (TextView) findViewById(R.id.conditions);
+		//String conditionsString = conditionsText.getText().toString();
+		//if (conditionsString.contentEquals("")){ 
+	    	new Scrape().execute();
+	    	TextView statusTextView = (TextView) findViewById(R.id.status);
+	    	statusTextView.setText("Updated " + strDate);
+		//}
 	}
 
 	@Override
@@ -68,6 +72,10 @@ public class MainActivity extends Activity {
 		    case R.id.about:
 		    	Intent myIntent = new Intent(this, AboutActivity.class);
 		    	startActivity(myIntent);
+		    	return true;
+		    case R.id.map:
+		    	Intent mapIntent = new Intent(this, MapActivity.class);
+		    	startActivity(mapIntent);
 		    	return true;
 		    default:
 		      return super.onOptionsItemSelected(item);
