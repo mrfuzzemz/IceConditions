@@ -113,6 +113,8 @@ public class MainActivity extends Activity {
         	    		title = title + span.text() + "\n\n";
         	    }
         	    Elements spans2 = document.select(".iceReportText");
+        	    // Want to make this more sophisticated 
+        	    // Best to have data structure for location with status, date, and photo, location on map!
         	    for (Element span : spans2){
         	    	if (span.text() != null){
         	    		title = title + span.text() + "\n";
@@ -137,3 +139,5 @@ public class MainActivity extends Activity {
     }
 
 }
+
+
