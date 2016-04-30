@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "api-project-251775874248",
+    "project_number": "251775874248",
+    "name": "NEClimbs"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251775874248:android:b8e48942a16b46ce",
+        "client_id": "android:com.mrfuzzemz.neclimbsiceconditions",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.mrfuzzemz.neclimbsiceconditions",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251775874248-q01uflan0m1aj88ne2i119tvrt4pq0ov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mrfuzzemz.neclimbsiceconditions",
+            "certificate_hash": "474C6311D3D09EBE678A0A9AE594A81691E0096E"
+          }
+        },
+        {
+          "client_id": "251775874248-br404mquv4d3trccjl95a5ei1dq0d9pd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
