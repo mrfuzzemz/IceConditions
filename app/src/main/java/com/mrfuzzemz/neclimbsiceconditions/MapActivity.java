@@ -12,8 +12,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.MapFragment;
 
 
-
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -25,17 +23,16 @@ import android.widget.Toast;
 
 
 public class MapActivity extends Activity implements OnMapReadyCallback {
-	
-	static final LatLng CATHEDRAL = new LatLng(44.065817,-71.165033);
-	static final LatLng FRANKENSTEIN = new LatLng(44.156033,-71.3668); 
-	static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-	static final LatLng KIEL = new LatLng(53.551, 9.993);
-	private GoogleMap map;
 
-	
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    static final LatLng CATHEDRAL = new LatLng(44.065817, -71.165033);
+    static final LatLng FRANKENSTEIN = new LatLng(44.156033, -71.3668);
+    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
+    static final LatLng KIEL = new LatLng(53.551, 9.993);
+    private GoogleMap map;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
@@ -46,8 +43,8 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
         //map.addMarker(new MarkerOptions()
-          //      .position(new LatLng(0, 0))
-            //    .title("Marker"));
+        //      .position(new LatLng(0, 0))
+        //    .title("Marker"));
         map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         map.setMyLocationEnabled(true);
         map.setTrafficEnabled(true);
@@ -55,46 +52,43 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
         map.setBuildingsEnabled(true);
         map.getUiSettings().setZoomControlsEnabled(true);
 
-            Marker hamburg = map.addMarker(new MarkerOptions().position(CATHEDRAL)
-                    .title("Cathedral Ledge"));
-            Marker kiel = map.addMarker(new MarkerOptions()
-                    .position(FRANKENSTEIN)
-                    .title("Frankenstein")
-                    .snippet("Frankenstein is cool")
-                    .icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_launcher)));
+        Marker hamburg = map.addMarker(new MarkerOptions().position(CATHEDRAL)
+                .title("Cathedral Ledge"));
+        Marker kiel = map.addMarker(new MarkerOptions()
+                .position(FRANKENSTEIN)
+                .title("Frankenstein")
+                .snippet("Frankenstein is cool")
+                .icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.ic_launcher)));
 
-            // Move the camera instantly to hamburg with a zoom of 15.
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(CATHEDRAL, 15));
+        // Move the camera instantly to hamburg with a zoom of 15.
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(CATHEDRAL, 15));
 
-            // Zoom in, animating the camera.
-            map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+        // Zoom in, animating the camera.
+        map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
     }
 
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.secondarymenu, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.secondarymenu, menu);
+        return true;
+    }
 
-	public boolean onOptionsItemSelected(MenuItem item) {
-		  switch (item.getItemId()) {
-		    case R.id.returnmenuitem:
-		    	//Intent mapIntent = new Intent(this, MainActivity.class);
-		    	//startActivity(mapIntent);
-		    	finish();
-		    	return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.returnmenuitem:
+                //Intent mapIntent = new Intent(this, MainActivity.class);
+                //startActivity(mapIntent);
+                finish();
+                return true;
 
-		    	
-		    default:
-		      return super.onOptionsItemSelected(item);
-		  }
-		}
 
-	
-	
-	
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 }

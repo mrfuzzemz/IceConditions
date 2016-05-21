@@ -1,29 +1,23 @@
 package com.mrfuzzemz.neclimbsiceconditions;
 
-import java.io.IOException;
-
-
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-public class AboutActivity extends Activity {
-
+/**
+ * Created by matthias on 5/21/16.
+ */
+public class DbviewActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_dbview);
 
         TextView link = (TextView) findViewById(R.id.nelink);
         String linkText = "Visit the <a href='http://www.neclimbs.com/?PageName=iceConditionsReport'>NEClimbs</a> web page.";
@@ -44,10 +38,6 @@ public class AboutActivity extends Activity {
                 //Intent mapIntent = new Intent(this, MainActivity.class);
                 //startActivity(mapIntent);
                 finish();
-                return true;
-            case R.id.dbview:
-                Intent myIntent = new Intent(this, DbviewActivity.class);
-                startActivity(myIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
