@@ -42,6 +42,8 @@ public class MainActivity extends Activity {
         TextView statusTextView = (TextView) findViewById(R.id.status);
         statusTextView.setText("Updated " + strDate);
         myDb = new DBHelper(this);
+
+        myDb.insertData("Frankenstein", "OK", "OK", "Today", 44.156033, -71.3668, "picture" );
         //}
     }
 

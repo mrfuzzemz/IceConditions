@@ -10,6 +10,7 @@
 	<string name="action_update">Update</string>
 	<string name="grabError">Error connecting to NEClimbs</string>
 	<string name="aboutTitleText">About</string>
+	<string name="dbviewTitleText">DB Viewer</string>
 	<string name="about_menu">About</string>
 	<string name="map_menu">Map</string>
 	<string name="dbview_menu">DbView</string>

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:neclimbsiceconditions="http://schemas.android.com/apk/res-auto">
     
     <item
         android:id="@+id/returnmenuitem"
-        android:showAsAction="ifRoom"
+        neclimbsiceconditions:showAsAction="ifRoom"
         android:title="@string/return_menu"/>
-    
+
+    <item
+        android:id="@+id/dbview"
+        neclimbsiceconditions:showAsAction="never"
+        android:title="@string/dbview_menu"/>
 </menu>
