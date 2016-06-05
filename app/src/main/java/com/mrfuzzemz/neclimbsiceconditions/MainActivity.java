@@ -3,6 +3,8 @@ package com.mrfuzzemz.neclimbsiceconditions;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -104,8 +106,28 @@ public class MainActivity extends Activity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
+                /* Pattern for pulling out location condition details */
+                Pattern areaPattern = Pattern.compile("(.+textMain\">)(\\S+)(</span>.+)()");//(.+width=\"80\" align=\"center\">)(Mar)(.+</td>.+)");
+
+
+
+                // So far group 2 is the verdict
+//
+//
+
+                //
+
+                //
+                //
+
+
+
+
+
+
                 // Connect to the web site
                 Document document = Jsoup.connect(url).get();
+
                 // Get the html document title
                 // title = document.title();
                 Elements spans = document.select(".iceReportBlurbBlock");
@@ -113,12 +135,22 @@ public class MainActivity extends Activity {
                     if (span.text() != null)
                         title = title + span.text() + "\n\n";
                 }
+
                 Elements spans2 = document.select(".iceReportText");
                 // Want to make this more sophisticated
                 // Best to have data structure for location with status, date, and photo, location on map!
                 for (Element span : spans2) {
                     if (span.text() != null) {
+                        /* For each iceReportText block pick out and store the details */
                         title = title + span.text() + "\n";
+                        Matcher areaMatch = areaPattern.matcher(span.html());
+                        title = title + "\n\n\n\n\n" + span.html() + "\n\n\n\n\n";
+                        if (areaMatch.find()) {
+
+
+                            title = title + areaMatch.group(2) + areaMatch.group(4) + "\n";
+                        }
+                        /* TODO: Use a lookup table for picking what area each climbing area is in */
                     }
                 }
                 //title = spans.text();
