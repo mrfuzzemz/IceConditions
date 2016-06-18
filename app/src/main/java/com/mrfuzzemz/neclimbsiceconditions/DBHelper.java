@@ -56,11 +56,22 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_7, longitude);
         contentValues.put(COL_8, pic);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if (result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
 
+    }
+
+    public boolean updateData(String name, String condition, String verdict, String date, double lat, double longitude, String pic){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, condition);
+        contentValues.put(COL_4, verdict);
+        contentValues.put(COL_5, date);
+        contentValues.put(COL_6, lat);
+        contentValues.put(COL_7, longitude);
+        contentValues.put(COL_8, pic);
+        long result = db.update(TABLE_NAME, contentValues, "name = ?", new String[] { name });
+        return result != -1;
 
     }
 }

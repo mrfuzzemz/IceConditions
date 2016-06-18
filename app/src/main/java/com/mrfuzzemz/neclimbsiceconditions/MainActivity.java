@@ -45,7 +45,8 @@ public class MainActivity extends Activity {
         statusTextView.setText("Updated " + strDate);
         myDb = new DBHelper(this);
 
-        myDb.insertData("Frankenstein", "OK", "OK", "Today", 44.156033, -71.3668, "picture" );
+        // May want to prepopulate DB with names and lat/long here.
+        // myDb.insertData("Frankenstein", "OK", "OK", "Today", 44.156033, -71.3668, "picture" );
         //}
     }
 
@@ -107,13 +108,16 @@ public class MainActivity extends Activity {
         protected Void doInBackground(Void... params) {
             try {
                 /* Pattern for pulling out location condition details */
-                Pattern areaPattern = Pattern.compile("(.+textMain\">)(\\S+)(</span>.+)()");//(.+width=\"80\" align=\"center\">)(Mar)(.+</td>.+)");
+                Pattern areaPattern = Pattern.compile("(.+)\\s([A-Z]{2,5}?)\\s(.+)");//(.+width=\"80\" align=\"center\">)(Mar)(.+</td>.+)");
+                Pattern picPattern = Pattern.compile("(.+) src=\"(.+)\" alt(.+)");
+                // Would it make sense to pull out of a lookup table? Either the location or the
+                // status?
 
 
-
-                // So far group 2 is the verdict
-//
-//
+                // So far group 1 is the area name, group 2 is the verdict, group 3 is the date
+                //
+                // May want to change the pattern to textPattern, and make a separate pattern
+                // for grabbing out the image
 
                 //
 
@@ -143,12 +147,39 @@ public class MainActivity extends Activity {
                     if (span.text() != null) {
                         /* For each iceReportText block pick out and store the details */
                         title = title + span.text() + "\n";
-                        Matcher areaMatch = areaPattern.matcher(span.html());
-                        title = title + "\n\n\n\n\n" + span.html() + "\n\n\n\n\n";
+                        // Matcher areaMatch = areaPattern.matcher(span.html());
+                        Matcher areaMatch = areaPattern.matcher(span.text());
+                        //
+                        // Nice for debugging patterns
+                        //
+                        // title = title + "\n\n\n\n\n" + span.html() + "\n\n\n\n\n";
+                        //
+
                         if (areaMatch.find()) {
+                        /* TODO: Why not just regex the text we already have, and grab
+                        *        the photo details from the html? */
+
+                            title = title + areaMatch.group(1) + "\n" + areaMatch.group(2) + "\n" + areaMatch.group(3) + "\n";
+                            // title = title + areaMatch.group(1) + areaMatch.group(2) + areaMatch.group(3) + "\n";
+
+                            /* Add this areas details to the database */
+                            myDb.updateData(areaMatch.group(1),"NA",areaMatch.group(2),areaMatch.group(3),0,0,"http://the.pic");
+
+                        }
+                        Matcher picMatch = picPattern.matcher(span.html());
+                        if (picMatch.find()) {
+                            title = title + picMatch.group(2).replaceFirst("images/", "") + "\n";
+                            if (!picMatch.group(2).equals("@string/img_path")) {
+                                //
+                                // This is where we add storing the image somehow
+                                //
+                                // This is either as a blob in the DB or as a path to the
+                                // image saved in the storage.
+                                //
 
 
-                            title = title + areaMatch.group(2) + areaMatch.group(4) + "\n";
+                            }
+
                         }
                         /* TODO: Use a lookup table for picking what area each climbing area is in */
                     }

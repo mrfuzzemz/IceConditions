@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">NEClimbs Ice Conditions</string>
+	<string name="img_path">http://www.neclimbs.com/images/</string>
+    <string name="img_placeholder">images/camera_placeholder.gif</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 	<string name="updating">Updating&#8230;</string>
