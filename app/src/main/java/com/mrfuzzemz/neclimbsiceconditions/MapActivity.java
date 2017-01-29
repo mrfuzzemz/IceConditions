@@ -1,6 +1,8 @@
 package com.mrfuzzemz.neclimbsiceconditions;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,6 +32,20 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
     static final LatLng KIEL = new LatLng(53.551, 9.993);
     private GoogleMap map;
 
+    Map<String, LatLng> mapLatLng = new HashMap<String, LatLng>(){{
+        put("North End Cathedral", new LatLng(44.065817, -71.165033));
+        put("Frankenstein", new LatLng(44.156033, -71.3668));
+        put("Arethusa Falls", new LatLng(44.147515, -71.385296));
+        put("Lake Willoughby", new LatLng(44.724290, -72.030079));
+        put("Texaco", new LatLng(44.12981,-71.34951));
+        put("Champney Falls", new LatLng(43.978787, -71.287982));
+        put("Kinsman Notch", new LatLng(44.029230, -71.766180));
+        put("Trollville", new LatLng(44.141241, -71.192637));
+        put("The Black Dike", new LatLng(44.156477, -71.687177));
+        put("The Flume", new LatLng(44.101520, -71.657760));
+        put("Elephant Head Gully", new LatLng(44.214615, -71.406231));
+        
+    }};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
