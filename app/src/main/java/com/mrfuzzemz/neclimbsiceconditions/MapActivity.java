@@ -44,7 +44,7 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
         put("The Black Dike", new LatLng(44.156477, -71.687177));
         put("The Flume", new LatLng(44.101520, -71.657760));
         put("Elephant Head Gully", new LatLng(44.214615, -71.406231));
-        
+
     }};
 
     @Override
@@ -63,19 +63,27 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
         //    .title("Marker"));
         map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         map.setMyLocationEnabled(true);
-        map.setTrafficEnabled(true);
-        map.setIndoorEnabled(true);
-        map.setBuildingsEnabled(true);
+        map.setTrafficEnabled(false);
+        map.setIndoorEnabled(false);
+        map.setBuildingsEnabled(false);
         map.getUiSettings().setZoomControlsEnabled(true);
 
-        Marker hamburg = map.addMarker(new MarkerOptions().position(CATHEDRAL)
-                .title("Cathedral Ledge"));
-        Marker kiel = map.addMarker(new MarkerOptions()
-                .position(FRANKENSTEIN)
-                .title("Frankenstein")
-                .snippet("Frankenstein is cool")
-                .icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ic_launcher)));
+
+        //Marker kiel = map.addMarker(new MarkerOptions()
+          //      .position(FRANKENSTEIN)
+            //    .title("Frankenstein")
+              //  .snippet("Frankenstein is cool")
+                //.icon(BitmapDescriptorFactory
+                  //      .fromResource(R.drawable.ic_launcher)));
+        for (Map.Entry<String, LatLng> entry : mapLatLng.entrySet())
+        {
+            Marker iceMarker = map.addMarker( new MarkerOptions().position(entry.getValue())
+                    .title(entry.getKey()));
+                    // Probably want to add verdict as a snippet here.
+                    // probably and .icon as well
+        }
+
+
 
         // Move the camera instantly to hamburg with a zoom of 15.
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(CATHEDRAL, 15));
