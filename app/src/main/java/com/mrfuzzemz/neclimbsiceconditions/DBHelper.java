@@ -13,9 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COL_3 = "CONDITION";
     private static final String COL_4 = "VERDICT";
     private static final String COL_5 = "DATE";
-    private static final String COL_6 = "LAT";
-    private static final String COL_7 = "LONG";
-    private static final String COL_8 = "PIC";  // Probably best to have a path rather than
+    private static final String COL_6 = "PIC";  // Probably best to have a path rather than
                                                 // store as a BLOB. We'll see.
     // private static final String COL_9 = "ICON"; // Icon can probably be determined by Verdict
     // If Verdict isn't recognized, can just be a default/neutral image
@@ -35,9 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
                    + COL_3 + " TEXT, "
                    + COL_4 + " TEXT, "
                    + COL_5 + " DATE, "
-                   + COL_6 + " REAL, "
-                   + COL_7 + " REAL, "
-                   + COL_8 + " TEXT)");
+                   + COL_6 + " TEXT)");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -45,31 +41,27 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String name, String condition, String verdict, String date, double lat, double longitude, String pic){
+    public boolean insertData(String name, String condition, String verdict, String date, String pic){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, condition);
         contentValues.put(COL_4, verdict);
         contentValues.put(COL_5, date);
-        contentValues.put(COL_6, lat);
-        contentValues.put(COL_7, longitude);
-        contentValues.put(COL_8, pic);
+        contentValues.put(COL_6, pic);
         long result = db.insert(TABLE_NAME, null, contentValues);
         return result != -1;
 
     }
 
-    public boolean updateData(String name, String condition, String verdict, String date, double lat, double longitude, String pic){
+    public boolean updateData(String name, String condition, String verdict, String date, String pic){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, condition);
         contentValues.put(COL_4, verdict);
         contentValues.put(COL_5, date);
-        contentValues.put(COL_6, lat);
-        contentValues.put(COL_7, longitude);
-        contentValues.put(COL_8, pic);
+        contentValues.put(COL_6, pic);
         long result = db.update(TABLE_NAME, contentValues, "name = ?", new String[] { name });
         return result != -1;
 

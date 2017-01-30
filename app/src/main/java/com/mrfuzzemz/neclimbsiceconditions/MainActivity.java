@@ -163,7 +163,7 @@ public class MainActivity extends Activity {
                             // title = title + areaMatch.group(1) + areaMatch.group(2) + areaMatch.group(3) + "\n";
 
                             /* Add this areas details to the database */
-                            myDb.updateData(areaMatch.group(1),"NA",areaMatch.group(2),areaMatch.group(3),0,0,"http://the.pic");
+                            myDb.updateData(areaMatch.group(1),"NA",areaMatch.group(2),areaMatch.group(3),"http://the.pic");
 
                         }
                         Matcher picMatch = picPattern.matcher(span.html());
